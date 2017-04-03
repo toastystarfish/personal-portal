@@ -1,0 +1,197 @@
+@import "core/manifest";
+
+
+// Placeholder styles
+::-webkit-input-placeholder {color:$placeholder_color;}
+:-moz-placeholder {color:$placeholder_color;}// Firefox 18-
+::-moz-placeholder {color: $placeholder_color;}// Firefox 19+
+:-ms-input-placeholder {color: $placeholder_color;}
+
+/* Add placeholder attribute to non-form elements */
+// special to the way we're doing inline editable
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(placeholder);
+    color:$placeholder_color;
+    font-size:.9em;
+  }
+
+// Default settings for form elements
+label {
+  display:block;
+  margin: 0;
+  color:$gray;}
+
+label, input {
+  font-size:.9em;
+  line-height: 1;}
+
+textarea {
+  height: auto;
+  min-height: 50px;}
+
+select {
+  box-sizing: border-box;
+  width: 100%;}
+
+[type='checkbox'] + label,
+[type='radio'] + label {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 0.5em;
+  margin-right: 1em;
+  margin-bottom: 0;}
+
+
+// changes the input glow in chrome
+// does not work in FF *yet*
+input:focus, textarea:focus {
+  outline-color: $blue_light;
+  outline-width: thin;}
+
+// format label + input on the same line
+.input-group {
+  display: table;
+  border-collapse: separate;
+  margin:1em 0;
+
+  label, input {
+    border: 1px solid #cccccc;
+    padding:.5em 1em;
+    display:table-cell;}
+
+  label {
+    color:$app_font_color;
+    border-right:none;
+    text-align: center;
+    background-color: #eee;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;}
+
+  input {
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    border: 1px solid #cccccc;
+    color:$app_font_color;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+    padding:.5em;}
+  }
+
+
+// Custom styles for inline editing
+.field {
+  margin:1.5em 0;
+  //temp value untill layout is defined
+  width:25em;  //remove when layout in place
+
+  //this is our inline input as span
+  span {
+  display:block;
+  height: 2.5em;//needed for ff
+  line-height: 2.5;
+  border-bottom: 1px solid #9e9e9e;
+  outline: none;
+  width: 100%;
+  transition: all 0.3s;}
+
+  span:focus {
+    border-bottom: 1px solid $green;
+    box-shadow: 0 1px 0 0 $green; }
+}
+
+//Buttons Styles
+// update when different types are defined
+input[type=submit],
+input[type=submit] + a,
+button, .btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e7e7e7;
+  border-color: #b9b9b9;
+  color: #333333;
+  font-size:.9em;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+input[type=submit] {
+  background-color: $blue;
+  color: #fefefe;
+  border-color: #007095;}
+
+input[type=submit]:hover,
+input[type=submit]:focus,
+button:focus, .btn:focus  {
+  background-color: $blue_dark;
+  color: #fefefe; }
+
+input[type=submit] + a {
+  text-decoration: none;
+  &:hover {
+    border-color:$gray_dark;}
+}
+// variation of back link
+// remove if we are not using it
+.bk-link {
+  color:#778899;
+  weight:100;
+  font-size:.9em;
+  &:before {
+    content: "\2190";
+    padding-right:4px;
+  }
+  &:hover {
+    text-decoration: none;
+    color:$link_active;
+  }
+}
+
+//button group - icons only
+.btn-group {
+  button, a {
+    margin-right:.4em; }
+
+  button {
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+    outline:none;
+    padding:0; }
+
+  button:hover, a:hover {
+    text-decoration: none; }
+
+  button.disabled:before,
+  a.disabled:before {
+    color:$gray_light; }
+}
+
+// font-awesome btn class
+.discard {
+  @include icon(before, cancel) {}
+  &:hover::before {
+    color:$red; }
+}
+.save {
+  @include icon(before, save) {}
+  &:hover::before {
+    color:$green_dark; }
+}
+.back {
+  @include icon(before, back) {}
+  &:hover::before {
+    color:$blue; }
+}
+.list {
+  @include icon(before, list) {}
+  &:hover::before {
+    color:$blue; }
+}

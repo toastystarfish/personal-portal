@@ -1,0 +1,9 @@
+
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+    $('#notifly').append(
+      "<%= j render partial: 'notifly/message', locals: {type: type, message: msg} %>"
+    );
+  <% end %>
+  display_notifly();
+<% end %>

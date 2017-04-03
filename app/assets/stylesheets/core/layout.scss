@@ -1,0 +1,133 @@
+//Page layout styles
+//changing this will change the entire app
+
+@import "core/manifest";
+
+
+// header and navigation
+header {
+  width:100%;
+  top:0;
+  position: fixed;
+  background-color: #ffffff;
+  height:$header_height;
+  z-index: 999; }
+
+nav {
+  width:$container_width;
+  margin:0 auto;
+  overflow: hidden; }
+
+.nav {
+  list-style: none;
+  margin:0;
+  padding:0;
+  line-height:$header_height;
+  li {
+    padding-left:.5em;
+    display: inline-block;}
+}
+
+// page content
+.page-content {
+  width:$container_width;
+  margin:$header_height auto 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  //keeps cells from resizing when sorting
+  table-layout:fixed;
+
+  th, td {
+    padding:.9em;
+    text-align: left;}
+
+  tbody tr:hover {
+    background-color: #fafafa;
+  }
+
+  td {
+    border-bottom: 1px solid $table_border;
+  }
+
+  thead {
+    th {
+      position: relative;
+      border-bottom: 2px solid $table_border;
+      text-transform: uppercase;
+      font-size:.9em;
+      font-weight: 600;
+      a {color:$gray;}
+      &[data-sort] :after {
+        content: '';
+        width:0;
+        height: 0;
+        position:absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        margin-left: 5px;
+      }
+      &[data-sort="asc"] :after {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid darken($table_border, 40);
+      }
+      &[data-sort="desc"] :after {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid darken($table_border, 40);
+      }
+    }
+  }//end thead
+}//end table
+
+// devise login
+#sessions_new, #passwords_new,
+#passwords_create {
+  h2 {
+    font-weight: 300;
+    text-align: center;}
+
+  &.page-content {
+    margin:15% auto 0;
+    width:340px;}
+
+  input[type=submit]{
+    width:100%;}
+
+  input[type=hidden]{
+    display: none; }
+
+  form + a {
+    margin-top: 1em;
+    display:block;
+    font-size:.8em;
+    text-align: center;
+  }
+  //fix layout caused by devise added div
+  .field_with_errors {
+    display: inline; }
+}
+
+// debugging - uncomment to show borders
+
+// .page-content, header, .btn-group {
+//   border:1px solid #efefef;
+// }
+// .page-content{
+//   width:$container_width + 2px;//make up for border
+// }
+// header {
+//   nav {
+//     border:1px dotted #efefef;
+//     width:$container_width + 2px;//make up for border
+//   }
+// }
+// .btn-group {
+//   border-left:none;
+//   border-right:none;
+//   &> * {border:1px dotted $gray!important;}
+// }

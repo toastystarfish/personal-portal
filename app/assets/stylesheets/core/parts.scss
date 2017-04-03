@@ -1,0 +1,49 @@
+@import "core/manifest";
+
+// utility class
+.right {float: right;}
+.hidden {display:none;}
+
+// Pagination
+.pagination {
+  margin:1em;
+  text-align: center;
+  &> * {
+    padding:0 .5em; }
+  .disabled {
+    color:$gray; }
+}
+
+// rails error msg styling
+#error_explanation {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding:1em;
+  h2 {
+    font-size:1.2em;}
+}
+
+//css tooltip - remove if we don't use
+a.tip, button.tip {
+  position:relative; }
+
+.tip span {
+  font-size: .8em;
+  font-weight: 500;
+  position:absolute;
+  left: 50%;
+  //this set the span off the screen on top
+  bottom:900px;
+  z-index: 999;
+  white-space:nowrap;
+  background:$gray_dark;
+  color:#ffffff;
+  padding:0px .5em;
+  line-height: 2;
+  height: 2em; }
+
+.tip:hover span {
+  opacity: 1;
+  //this brings the span back under the icon
+  bottom:-28px; }

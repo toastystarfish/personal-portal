@@ -1,0 +1,48 @@
+/*
+ * App Global Variables.
+ */
+
+// Define css variables
+$app_line_height:     1.5;
+$header_height:       2em;
+$container_width:     980px;
+$icon_line_height:    1.15;
+
+
+//Colors
+$green:            #43AC6A;
+$green_dark:       #368a55;
+$green_light:      #C3E88D;
+
+$blue:             #1779ba;
+$blue_dark:        #285e8e;
+$blue_light:       #008CBA;
+
+$red:              #c0392b;
+$red_dark:         #a32a2a;
+$red_light:        #f04124;
+
+$orange:           #E99D28;
+$orange_light:     #ffae00;
+
+$gray:             #7f8c8d;
+$gray_dark:        #5e686e;
+$gray_light:       #ececec;
+
+//Components Colors
+$app_font_color:  #384d5a;
+$link_color:  $blue;
+$link_active: $green;
+$table_border:    $gray_light;
+$placeholder_color: #cacaca;
+
+// https://webdevstudios.com/2015/01/28/mapping-icon-fonts-with-sass/
+$font-icon: "FontAwesome";
+
+// Map icon names to font unicode characters
+$icons: (
+  save: "\f0c7",
+  cancel: "\f0e2",
+  back: "\f0a8",
+  list: "\f03a",
+);

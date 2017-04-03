@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Baseline</title>
+    <%= csrf_meta_tags %>
+    
+    <meta name="turbolinks-cache-control" content="no-preview">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= notifly_template %>
+    <% unless current_user.nil? %>
+      <%= render partial: "layouts/header" %>
+    <% end %>
+    <div id="<%= "#{controller_name}_#{action_name}" %>" class="page-content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+
+#notifly {
+  z-index: 999;
+  position: fixed;
+  overflow: visible;
+  max-width: 35%;
+  bottom:25px;
+  left:0;
+
+  .notice {
+    background-color: #6699cc;
+  }
+
+  .alert {
+    background-color: #E65245;
+  }
+
+  .success {
+    background-color: #3EBD7D;
+  }
+
+  .warning {
+    background-color: #FDEC96;
+  }
+
+  .wrapper {
+    position: relative;
+    padding: 10px 8px 8px;
+    margin: 2px 0;
+    display: inline-block;
+    min-width: 200px;
+    border-radius: 0 3px 3px 0;
+    right: 150%;
+    display:none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: none;
+
+    .message {
+      margin-right: 15px;
+    }
+
+    .closer {
+      position:absolute;
+      top: 5px;
+      right: 8px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+class UsersController < ResourcesController
+  resource_model User
+
+  before_action :authenticate_user!, except: [:create]
+
+  def new
+    super
+    @user.email = invitation.email unless invitation.blank?
+    authorize @user
+    sign_out
+  end
+
+  def create
+    @user = User.new user_params
+    @user.roles_mask = User.roles[:developer]
+    authorize @user
+
+    respond_to do |format|
+      if @user.save
+        @user.invitation.accept
+        # dont require sign in if user created from token
+        bypass_sign_in @user if current_user.blank?
+        format.html { redirect_to root_path, notice: "Account successfully created."}
+      else
+        format.html {render action: 'new'}
+      end
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    # unless you are changing your password to something new we dont want to
+    # update this attribute
+    pruned = user_params
+    unless updating_password?
+      pruned.delete :password
+      pruned.delete :password_confirmation
+    end
+
+    respond_to do |format|
+      if @user.update(pruned)
+        # if the password is present (we're updating it) and current_user is
+        # the user being updated, we need to sign back in for ourselves
+        bypass_sign_in @user if current_user.id == @user.id && updating_password?
+        format.html { redirect_to @user, notice: "User updated."}
+      else
+        format.html { render action: 'edit'}
+      end
+    end
+  end
+
+  private
+
+  def invitation
+    @invitation ||= InvitationsQuery.first_with_token params[:token]
+  end
+
+  def authenticate_user!
+    super unless invitation.present? && invitation.accepted_at.nil?
+  end
+
+  def updating_password?
+    user_params[:password].present?
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password,
+      :password_confirmation)
+  end
+end

@@ -1,0 +1,32 @@
+/*
+ * Put SCSS Mixins here
+ */
+
+ @mixin icon($position: before, $icon: false, $styles: true) {
+   @if $position == both {
+     $position: 'before, &:after';
+   }
+   // Either a :before or :after pseudo-element, or both, defaulting to :before
+   &:#{$position} {
+     @if $icon {
+       // A particular icon has been specified
+       content: "#{map-get($icons, $icon)}";
+     }
+     @if $styles {
+       // Supportive icon styles required
+       speak: none;
+       font-style: normal;
+       font-weight: normal;
+       font-family: $font-icon;
+       text-align: center;
+       font-size:1.3em;
+       color:$app_font_color;
+       //width:50px;
+       //line-height: $icon_line_height;
+       //opacity: 0.5;
+       vertical-align: middle;
+     }
+     // Include any extra rules supplied for the pseudo-element
+     @content;
+   }
+ }

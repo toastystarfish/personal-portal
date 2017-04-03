@@ -1,0 +1,22 @@
+
+<h1>Users</h1>
+<%= link_to 'Invite a User', new_invitation_path %>
+
+<table>
+  <thead>
+    <tr>
+      <%= sortable_column_header :first_name %>
+      <%= sortable_column_header :email %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @users %>
