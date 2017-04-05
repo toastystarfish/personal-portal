@@ -38,7 +38,7 @@ gem 'will_paginate'      # Simple pagination helpers
 # gem 'paperclip'        # file attachments to models
 # gem 'aws-sdk', '< 2.0' # ruby wrapper for aws sdk; Set to less than 2
                          # because of error:
-# http://stackoverflow.com/questions/28374401/nameerror-uninitialized-constant-paperclipstorages3aws
+# http://stackoverflow.com/questions/28374401
 
 # FRONTEND
 
