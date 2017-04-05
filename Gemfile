@@ -1,4 +1,4 @@
-\source 'https://rubygems.org'
+source 'https://rubygems.org'
 # lc41 gem server, gems found here will be prioritized over rubygems
 source 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/'
 
@@ -37,11 +37,6 @@ gem 'will_paginate'             # Simple pagination helpers
 # FRONTEND
 
 gem 'font-awesome-rails'        # Loads of icons
-
-# TRICKS
-
-# If Rails 5 is throwing errors when using generators try downgrading your thor
-gem 'thor', '0.19.1'
 
 group :production do
   # gem 'postmark-rails', '>= 0.10.0'
