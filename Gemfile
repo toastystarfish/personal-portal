@@ -31,22 +31,12 @@ gem 'will_paginate'             # Simple pagination helpers
 # gem 'sidekiq'                 # Enables ActiveJob
 # gem 'sidekiq-status'          # Query jobs status and attributes
 # gem 'sinatra', require: false # dependency of sidekiqs web console
-# gem 'oily_png'                # Generate png files programatically
 # gem 'pg_search'               # database text search, multicolumn, etc.
-# gem 'rmagick'                 # image manipulation lib, paperclip dependency
 # gem 'paperclip'               # file attachments to models
-# gem 'aws-sdk', '< 2.0'        # ruby wrapper for aws sdk; Set to less than 2
-                                # because of error:
-                                # http://stackoverflow.com/questions/28374401
 
 # FRONTEND
 
 gem 'font-awesome-rails'        # Loads of icons
-# gem 'jquery-ui-rails'         # Javascript ui library
-# gem 'd3-rails'                # Includes the D3 javascript svg lib
-# gem 'chosen-rails'            # Multiselect dropdown inputs
-# gem 'remotipart', '~>1.2'     # AJAX file uploads
-# gem 'introjs-rails'           # site tours / tutorials
 
 # TRICKS
 
@@ -58,8 +48,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'pry'                     # Debugging console
-  gem 'pry-remote'              # Use the pry console from running web app
+  gem 'pry-byebug'              # Debugging console
   gem 'simplecov'               # Code coverage for tests
   gem 'selenium-webdriver'      # better webdriver for capybara
   gem 'capybara'                # integration testing tool
