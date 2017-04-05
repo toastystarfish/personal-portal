@@ -8,7 +8,7 @@
 			<%= @invitation.invited_by.name %> has invited you to use <%= Rails.application.class.parent_name %>
 		</span>
 		<span>
-			To accept this invitation, click the link: <%=link_to "Create an Account",  invited_new_user_url(token: "#{@invitation.token}")%>
+			To accept this invitation, click the link: <%= link_to "Create an Account", invited_new_user_url(token: "#{@invitation.token}") %>
 		</span>
 	</body>
 </html>
