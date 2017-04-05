@@ -12,8 +12,7 @@ class UsersController < ResourcesController
   end
 
   def create
-    @user = User.new user_params
-    @user.roles_mask = nil
+    @user = User.new user_params.except(:roles_mask)
     @user.invitation&.assign_attributes token: params[:token]
     authorize @user
 

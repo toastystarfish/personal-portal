@@ -4,9 +4,9 @@ def create_simpsons_user args={}
     raise ArgumentError, "No first name provided to create_simpsons_user"
   end
 
-  args[:last_name] ||= 'Simpson'
-  args[:email]     ||= "#{args[:first_name].downcase}@springfield.com"
-  args[:password]  ||= 'p@ssw0rd'
+  args[:last_name]  ||= 'Simpson'
+  args[:email]      ||= "#{args[:first_name].downcase}@springfield.com"
+  args[:password]   ||= 'p@ssw0rd'
   User.create args
 end
 
