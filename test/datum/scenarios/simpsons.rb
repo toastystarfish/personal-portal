@@ -15,6 +15,13 @@ end
 @lisa   = create_simpsons_user first_name: 'Lisa',  roles_mask: User.roles[:developer]
 @bart   = create_simpsons_user first_name: 'Bart'
 @maggie = create_simpsons_user first_name: 'Maggie'
+@apu    = create_simpsons_user first_name: 'Apu', last_name: 'Nahasapeemapetilon'
+@nelson = create_simpsons_user first_name: 'Nelson', last_name: 'Muntz'
+@troy   = create_simpsons_user first_name: 'Troy', last_name: 'McClure'
+@lenny  = create_simpsons_user first_name: 'Lenny', last_name: 'Leonard'
+@carl   = create_simpsons_user first_name: 'Carl', last_name: 'Carlson'
+@frink  = create_simpsons_user first_name: 'John', last_name: 'Frink',
+          roles_mask: User.roles[:developer]
 
 @ned = create_simpsons_user first_name: "Ned", last_name: "Flanders",
        email: "ned@flanders.com", roles_mask: User.roles[:developer]

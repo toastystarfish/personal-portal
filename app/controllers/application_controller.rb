@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
-  before_action :configure_devise_params, if: :devise_controller?
 
   # this is a global catch for pundit failed
   # needed for invitations
@@ -14,13 +13,6 @@ class ApplicationController < ActionController::Base
 
   def pundit_msg
     PUNDIT_ERROR
-  end
-
-  def configure_devise_params
-    devise_parameter_sanitizer.permit(:sign_up) do |params|
-      params.permit :first_name, :last_name, :email, :password,
-                    :password_confirmation
-    end
   end
 
   # Default Error Message: see PUNDIT_ERROR

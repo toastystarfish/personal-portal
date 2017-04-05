@@ -96,9 +96,9 @@ CREATE TABLE schema_migrations (
 
 CREATE TABLE users (
     id integer NOT NULL,
-    first_name character varying,
-    last_name character varying,
-    roles_mask integer,
+    first_name character varying NOT NULL,
+    last_name character varying NOT NULL,
+    roles_mask integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     email character varying DEFAULT ''::character varying NOT NULL,
