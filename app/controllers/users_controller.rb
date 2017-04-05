@@ -29,15 +29,7 @@ class UsersController < ResourcesController
   end
 
   def update
-    # unless you are changing your password to something new we dont want to
-    # update this attribute
-    pruned = user_params
-    unless updating_password?
-      pruned.delete :password
-      pruned.delete :password_confirmation
-    end
-
-    @user.assign_attributes pruned
+    @user.assign_attributes user_params_for_update
     authorize @user
 
     respond_to do |format|
@@ -68,6 +60,17 @@ class UsersController < ResourcesController
 
   def updating_password?
     user_params[:password].present?
+  end
+
+  def user_params_for_update
+    user_params.tap do |par|
+      # unless you are changing your password to something new we dont want to
+      # update this attribute
+      unless updating_password?
+        par.delete :password
+        par.delete :password_confirmation
+      end
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
