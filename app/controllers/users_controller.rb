@@ -5,10 +5,10 @@ class UsersController < ResourcesController
   before_action :set_user, only: [:update]
 
   def new
+    sign_out
     super
     @user.email = invitation.email unless invitation.blank?
     authorize @user
-    sign_out
   end
 
   def create

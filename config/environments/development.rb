@@ -6,9 +6,20 @@ Rails.application.configure do
 
   # send the invitations in development mode
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :file
-  config.action_mailer.file_settings = {
-    :location => Rails.root.join('tmp', 'email')
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = {
+    host: "localhost:3000"
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: ENV['DEV_MAILER_PORT'],
+    domain: ENV['DEV_MAILER_DOMAIN'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['DEV_MAILER_ACCOUNT'],
+    password:  ENV['DEV_MAILER_PASSWORD']
   }
 
   # Uncomment to enable ActionCable's server at this address
