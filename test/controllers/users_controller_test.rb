@@ -79,7 +79,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   def user_hash
-    { first_name: "Montgomery", last_name: "Burns",
+    {
+      first_name: "Montgomery", last_name: "Burns",
       email: @burns_invitation.email, password: "p@ssw0rd",
       password_confirmation: "p@ssw0rd"
     }
