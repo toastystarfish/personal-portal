@@ -2,6 +2,7 @@ class UsersController < ResourcesController
   resource_model User
 
   before_action :authenticate_user!, except: [:create]
+  before_action :set_user, only: [:update]
 
   def new
     super
@@ -12,7 +13,8 @@ class UsersController < ResourcesController
 
   def create
     @user = User.new user_params
-    @user.roles_mask = User.roles[:developer]
+    @user.roles_mask = nil
+    @user.invitation&.assign_attributes token: params[:token]
     authorize @user
 
     respond_to do |format|
@@ -28,8 +30,6 @@ class UsersController < ResourcesController
   end
 
   def update
-    @user = User.find(params[:id])
-
     # unless you are changing your password to something new we dont want to
     # update this attribute
     pruned = user_params
@@ -38,8 +38,11 @@ class UsersController < ResourcesController
       pruned.delete :password_confirmation
     end
 
+    @user.assign_attributes pruned
+    authorize @user
+
     respond_to do |format|
-      if @user.update(pruned)
+      if @user.save
         # if the password is present (we're updating it) and current_user is
         # the user being updated, we need to sign back in for ourselves
         bypass_sign_in @user if current_user.id == @user.id && updating_password?
@@ -51,6 +54,10 @@ class UsersController < ResourcesController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def invitation
     @invitation ||= InvitationsQuery.first_with_token params[:token]

@@ -2,7 +2,9 @@
 require 'enum'
 
 module Roles
-  def self.included base
+  extend ActiveSupport::Concern
+
+  included do |base|
     base.extend ClassMethods
   end
 
