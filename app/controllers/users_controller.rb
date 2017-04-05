@@ -47,7 +47,7 @@ class UsersController < ResourcesController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = UsersQuery.find params[:id]
   end
 
   def invitation

@@ -7,7 +7,7 @@ class ResourcesController < ApplicationController
 
   # default index action.
   def index
-    @resources = resource_query.index(params[:page], sort_params)
+    @resources = resource_query.index params[:page], sort_params
     instance_variable_set :"@#{resource_name.pluralize}", @resources
   end
 
@@ -20,7 +20,7 @@ class ResourcesController < ApplicationController
   # dont want the method called directly it is set to private once we alias it
   # as public
   def set_resource
-    @resource = resource_query.send(params[:action], params[:id])
+    @resource = resource_query.send :find, params[:id]
     # authorize the user if a policy exists
     authorize @resource if Pundit.policy(current_user, @resource)
     alias_resource_var
