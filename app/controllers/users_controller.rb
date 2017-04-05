@@ -36,7 +36,7 @@ class UsersController < ResourcesController
       if @user.save
         # if the password is present (we're updating it) and current_user is
         # the user being updated, we need to sign back in for ourselves
-        bypass_sign_in @user if current_user.id == @user.id && updating_password?
+        bypass_sign_in @user if updating_self? && updating_password?
         format.html { redirect_to @user, notice: "User updated."}
       else
         format.html { render action: 'edit'}
@@ -56,6 +56,10 @@ class UsersController < ResourcesController
 
   def authenticate_user!
     super unless invitation.present? && invitation.accepted_at.nil?
+  end
+
+  def updating_self?
+    current_user.id == @user.id
   end
 
   def updating_password?
