@@ -3,9 +3,9 @@ class UserMailer < ApplicationMailer
   # In this case we are setting :from header to a value for all messsages in this
   #     class. This can be overriden per email basis
 
-  default from: (ENV['INVITE_FROM'] || 'noreply@atlas.com')
+  default from: (ENV['INVITE_FROM'] || "noreply@#{app_name.downcase}.com")
 
-  SUBJECT = "You've been invited to join #{Rails.application.class.parent_name}"
+  SUBJECT = "You've been invited to join #{app_name}"
 
   # Creates the message to be delivered by email
   def invite_new_user(invitation)
@@ -20,6 +20,10 @@ class UserMailer < ApplicationMailer
   end
 
   private
+
+  def app_name
+    Rails.application.class.parent_name
+  end
 
   # helper to send invitation in tests
   def invoke_mail(to, from, subject, do_format = true)
