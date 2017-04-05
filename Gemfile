@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+\source 'https://rubygems.org'
 # lc41 gem server, gems found here will be prioritized over rubygems
 source 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/'
 
@@ -55,7 +55,6 @@ gem 'font-awesome-rails'    # Loads of icons
 gem 'thor', '0.19.1'
 
 group :production do
-  gem 'rails_12factor'
   # gem 'postmark-rails', '>= 0.10.0'
 end
 
