@@ -2,12 +2,6 @@
 function display_notifly () {
   var delay=0;
 
-  if(document.documentElement.hasAttribute("data-turbolinks-preview")) {
-    // turbolinks is previewing the page, we dont execute unless its an actual
-    // page load
-    return;
-  }
-
   $('#notifly .wrapper:not(:visible)').each(function () {
     var self = this;
 
