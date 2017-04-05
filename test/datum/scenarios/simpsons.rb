@@ -10,7 +10,7 @@ def create_simpsons_user args={}
   User.create args
 end
 
-@homer  = create_simpsons_user first_name: 'Homer', roles_mask: User.roles[:owner]
+@homer  = create_simpsons_user first_name: 'Homer', roles_mask: User.roles[:owner] | User.roles[:admin]
 @marge  = create_simpsons_user first_name: 'Marge', roles_mask: User.roles[:admin]
 @lisa   = create_simpsons_user first_name: 'Lisa',  roles_mask: User.roles[:developer]
 @bart   = create_simpsons_user first_name: 'Bart'
