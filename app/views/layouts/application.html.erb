@@ -3,7 +3,7 @@
   <head>
     <title>Baseline</title>
     <%= csrf_meta_tags %>
-    
+
     <meta name="turbolinks-cache-control" content="no-preview">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,15 @@
   <body>
     <%= notifly_template %>
     <% unless current_user.nil? %>
-      <%= render partial: "layouts/header" %>
+      <header>
+        <nav>
+          <ul class="nav right">
+            <%= link_to sign_out_path do %>
+              <li><%= fa_icon "sign-out" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
     <% end %>
     <div id="<%= "#{controller_name}_#{action_name}" %>" class="page-content">
       <%= yield %>
