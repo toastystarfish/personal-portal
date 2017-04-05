@@ -31,7 +31,6 @@ gem 'will_paginate'      # Simple pagination helpers
 # gem 'sidekiq'          # Enables ActiveJob
 # gem 'sidekiq-status'   # Query jobs status and attributes
 # gem 'sinatra', require: false # dependency of sidekiqs web console
-# gem 'slim'                    # dependency of sidekiqs web console
 # gem 'oily_png'         # Generate png files programatically
 # gem 'pg_search'        # database text search, multicolumn, etc.
 # gem 'rmagick'          # image manipulation lib, paperclip dependency
