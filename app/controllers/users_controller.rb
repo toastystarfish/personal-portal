@@ -9,6 +9,7 @@ class UsersController < ResourcesController
     super
     @user.email = invitation.email unless invitation.blank?
     authorize @user
+    @token = params[:token]
   end
 
   def create

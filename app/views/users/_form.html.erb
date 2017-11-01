@@ -2,6 +2,7 @@
   <%= f.hidden_field :first_name %>
   <%= f.hidden_field :last_name %>
   <%= f.hidden_field :email %>
+  <%= hidden_field_tag :token, token %>
 
   <% if user.errors.any? %>
     <div id="error_explanation">
