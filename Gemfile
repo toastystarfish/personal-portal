@@ -20,7 +20,6 @@ gem 'turbolinks', '~> 5'        # Increases performance of web application
 # TYEMILL CREATED GEMS
 
 gem 'datum'                     # Testing utilities
-gem 'spur'                      # Custom generators
 # gem 'jaunt'                   # Performant .xlsx file parsing
 
 # OUR FAVORITE GEMS
