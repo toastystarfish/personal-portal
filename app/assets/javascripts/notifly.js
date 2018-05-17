@@ -22,5 +22,7 @@ $(document).on('click', '#notifly .closer', function () {
 });
 
 function close_notifly_message (msg) {
-  $(msg).clearQueue().animate({right: '150%'}, 250);
+  $(msg).clearQueue().animate({right: '150%'}, 250, function () {
+      $('#notifly').hide();
+  });
 }
