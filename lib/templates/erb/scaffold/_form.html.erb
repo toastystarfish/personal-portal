@@ -5,22 +5,24 @@
 <% end -%>
 <% end -%>
 
-<% attributes.each do |attribute| -%>
-  <div class="stacked-form-field">
-  <% if attribute.password_digest? -%>
-      <%%= f.label :password %>
-      <%%= f.password_field :password, id: :<%= field_id(:password)%>, class: "full-width" %>
-    </div>
-
+<section>
+  <% attributes.each do |attribute| -%>
     <div class="stacked-form-field">
-      <%%= f.label :password_confirmation %>
-      <%%= f.password_field :password_confirmation, id: :<%= field_id(:password_confirmation)%>, class: "full-width" %>
-  <% else -%>
-      <%%= f.label :<%= attribute.column_name %> %>
-      <%%= f.text_field :<%= attribute.column_name %>, class: "full-width", placeholder: "Enter <%= attribute.column_name.titleize %>" %>
+    <% if attribute.password_digest? -%>
+        <%%= f.label :password %>
+        <%%= f.password_field :password, id: :<%= field_id(:password)%>, class: "full-width" %>
+      </div>
+
+      <div class="stacked-form-field">
+        <%%= f.label :password_confirmation %>
+        <%%= f.password_field :password_confirmation, id: :<%= field_id(:password_confirmation)%>, class: "full-width" %>
+    <% else -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.text_field :<%= attribute.column_name %>, class: "full-width", placeholder: "Enter <%= attribute.column_name.titleize %>" %>
+    <% end -%>
+    </div>
   <% end -%>
-  </div>
-<% end -%>
+</section>
 
 <%% if <%= singular_table_name %>.errors.any? %>
   <div class="top-space-16">
