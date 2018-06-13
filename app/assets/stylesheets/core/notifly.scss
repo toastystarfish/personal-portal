@@ -2,49 +2,33 @@
 @import "core/manifest";
 
 #notifly {
-  z-index: 999;
-  position: fixed;
-  overflow: visible;
-  max-width: 35%;
-  top: $header_height;
-  left:0;
+  @include horizontal-center($position: fixed);
+  top: calc(#{$navbar-height} - 17px);
+  z-index: 1000;
 
-  .notice {
-    background-color: #6699cc;
-  }
-
-  .alert {
-    background-color: #E65245;
-  }
-
-  .success {
-    background-color: #3EBD7D;
-  }
-
-  .warning {
-    background-color: #FDEC96;
-  }
+  .notice  { background-color: $blue; }
+  .alert   { background-color: $red; }
+  .success { background-color: $green; }
+  .warning { background-color: $orange-light; }
 
   .wrapper {
     position: relative;
-    padding: 10px 8px 8px;
-    margin: 2px 0;
-    display: inline-block;
-    min-width: 200px;
-    border-radius: 0 3px 3px 0;
-    right: 150%;
-    display:none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-left: none;
+    color: $text-light;
+    text-align: center;
+    font-weight: 500;
+    font-size: $font-small;
+    padding: 4px 16px;
+    margin-top: 4px;
+    min-width: 128px;
+    border-radius: 16px;
 
-    .message {
-      margin-right: 15px;
-    }
+    &.animate-in  { animation: slide-fade-scale-from-top .3s forwards; }
+    &.animate-out { animation: slide-fade-to-right .3s forwards; }
 
     .closer {
-      position:absolute;
-      top: 5px;
-      right: 8px;
+      @include vertical-center;
+      right: 12px;
+      font-size: $font-medium;
       cursor: pointer;
     }
   }

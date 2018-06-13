@@ -1,0 +1,128 @@
+@import "core/manifest";
+
+// ----------  utility.scss  ----------
+//
+// Includes utility classes for making common changes to (among other things):
+// - Text color
+// - Text size
+// - Element spacing (either to the left or above)
+// - Element padding
+//
+// Try to reach here first before creating new classes for minor elements.
+
+
+// ----------  Some basic utility classes  ----------
+.right       { float: right; }
+.hidden      { display: none; }
+.center      { margin: auto; }
+.no-margin   { margin: 0; }
+// ----------  Display properties  ----------
+.inline      { display: inline-block; }
+.flex        { display: flex; }
+// ----------  Text-align properties  ----------
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+.text-center { text-align: center; }
+
+.full-width  { width: 100%; }
+.full-height { height: 100%; }
+
+
+// Text styles
+// -------------- Colors ------------------
+.primary        { color: $text-primary; }
+.secondary      { color: $text-secondary; }
+.hint           { color: $text-hint; }
+.primary-light  { color: $text-light; }
+.text-app-color { color: $app-color-primary; }
+.text-error     { color: $app-color-error; }
+// -------------- Sizes ------------------
+.font-minuscule { font-size: $font-minuscule; }
+.font-tiny      { font-size: $font-tiny; }
+.font-small     { font-size: $font-small; }
+.font-normal    { font-size: $font-normal; }
+.font-medium    { font-size: $font-medium; }
+.font-large     { font-size: $font-large; }
+.font-huge      { font-size: $font-huge; }
+
+
+// Horizontal spacers
+.left-space-4  { margin-left: 4px; }
+.left-space-8  { margin-left: 8px; }
+.left-space-16 { margin-left: 16px; }
+.left-space-24 { margin-left: 24px; }
+.left-space-32 { margin-left: 32px; }
+.left-space-48 { margin-left: 48px; }
+
+// Vertical spacers
+.top-space-2  { margin-top: 2px; }
+.top-space-4  { margin-top: 4px; }
+.top-space-8  { margin-top: 8px; }
+.top-space-16 { margin-top: 16px; }
+.top-space-24 { margin-top: 24px; }
+.top-space-32 { margin-top: 32px; }
+.top-space-48 { margin-top: 48px; }
+
+
+// -------------- Utility classes for padding ------------------
+// 8px: "small" amount of padding
+.padding-all-8     { padding:        8px; }
+.padding-left-8    { padding-left:   8px; }
+.padding-right-8   { padding-right:  8px; }
+.padding-top-8     { padding-top:    8px; }
+.padding-bottom-8  { padding-bottom: 8px; }
+.padding-lr-8      { padding-left:   8px;
+                     padding-right:  8px; }
+// 16px: "standard" padding amoutn
+.padding-all-16    { padding:        16px; }
+.padding-left-16   { padding-left:   16px; }
+.padding-right-16  { padding-right:  16px; }
+.padding-top-16    { padding-top:    16px; }
+.padding-bottom-16 { padding-bottom: 16px; }
+.padding-lr-16     { padding-left:   16px;
+                     padding-right:  16px; }
+
+.padding-top-24    { padding-top:    24px; }
+
+.padding-top-32    { padding-top:    32px; }
+
+.padding-top-48    { padding-top:    48px; }
+
+
+// Clear list style and left padding from a <ul>
+.no-list-style {
+  @include no-list-style;
+}
+
+// Clear the link style from an element - it will look like normal text, but
+// still have a cursor on hover
+.no-link-style {
+  @include no-link-style;
+}
+
+.icon-link {
+  color: $app-color-icon;
+  &:hover { color: $app-color-icon-hover; }
+}
+
+// Useful for header rows - use flex-right to push some options to the right
+// and they will stay aligned
+.flex-baseline {
+  display: flex;
+  align-items: baseline;
+}
+
+// Align right when parent has display: flex
+.flex-right {
+  margin-left: auto;
+}
+
+.truncate-text {
+  @include truncate-text;
+}
+
+// A few variations of a "card" element - a border, white background, and
+// padding (although the specifics can be customized as params of the mixin)
+.basic-card-0  { @include basic-card($padding: 0px); }
+.basic-card-8  { @include basic-card($padding: 8px); }
+.basic-card-16 { @include basic-card($padding: 16px); }

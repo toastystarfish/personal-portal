@@ -1,0 +1,130 @@
+@import "core/manifest";
+
+//  ------------ Link styles ------------------
+// .link is used to force buttons or submit inputs to look like links
+a, .link {
+  cursor: pointer;
+  color: $app-color-link;
+  text-decoration: none;
+  outline: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Overwrite some other styles when styling button or submit input as a link
+input.link, button.link {
+  @include appearance-none; // Clear browser-specific styles
+  display: inline;
+  border: 0;
+  padding: 0;
+  background-color: unset;
+}
+
+
+// Base styles for button
+.button-base {
+  @include appearance-none; // Clear browser-specific styles
+  @include no-link-style;   // Clear styles (if turning <a> element into button)
+  cursor: pointer;
+
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: $app-border-radius;
+
+  line-height: 1;
+  font-weight: 500;
+  transition: all 50ms;
+  // Disabled button - duplicate styles for hover so that other
+  // button hover states don't persist
+  &.disabled, &.disabled:hover {
+    background-color: $grey-5;
+    border: 1px solid $grey-7;
+    color: $text-hint;
+    cursor: not-allowed;
+  }
+}
+
+// ----- Default submit button / primary button -----
+.btn-primary {
+  @extend .button-base;
+  border: 1px solid $app-color-button;
+  background-color: $app-color-button;
+  color: $text-light;
+
+  &:hover {
+    border-color: $app-color-button-hover;
+    background-color: $app-color-button-hover;
+  }
+}
+
+.btn-secondary {
+  @extend .button-base;
+  background-color: transparent;
+  border: 1px solid $app-color-button;
+  color: $app-color-button;
+
+  &:hover {
+    background-color: $app-color-button;
+    color: $text-light;
+  }
+}
+
+.btn-tertiary {
+  @extend .button-base;
+  font-weight: 400;
+  background-color: white;
+  border: 1px solid $grey-7;
+  color: $text-primary;
+
+  &:hover { background-color: $grey-7; }
+}
+
+
+//  ------------ Input styles ------------------
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=url],
+input[type=date],
+textarea {
+  @include basic-card($padding: 8px);
+  line-height: 1;
+
+  &:hover { border-color: $grey-11; }
+  // HACK to Remove yellow autofill background
+  &:-webkit-autofill { -webkit-box-shadow: inset 0 0 0px 9999px white; }
+}
+
+textarea {
+  resize: vertical;
+}
+
+// Placeholder styles
+::-webkit-input-placeholder { color: $text-placeholder; }
+:-moz-placeholder           { color: $text-placeholder; } // Firefox 18-
+::-moz-placeholder          { color: $text-placeholder; } // Firefox 19+
+:-ms-input-placeholder      { color: $text-placeholder; } // Internet Explorer
+::-ms-input-placeholder     { color: $text-placeholder; } // Edge
+::placeholder               { color: $text-placeholder; }
+
+
+//  ------------ Native dropdown menus ------------------
+select {
+  @include appearance-none; // Remove default browser styles
+  @include basic-card($padding: 4px 24px 4px 4px);
+  // Use an image for the the dropdown arrow
+  background: image-url('angle_down.svg') (right 8px center) / (10px 6px) no-repeat white;
+
+  &:hover { border-color: $grey-11; }
+}
+
+
+// "Glow" around items when they are :focus ed
+input:focus, textarea:focus, select:focus, button:focus,  {
+  outline: none;
+  box-shadow: 0 0 4px 0 lighten($app-color-primary, 15%);
+}
