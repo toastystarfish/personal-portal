@@ -8,10 +8,6 @@ class UsersQuery < ApplicationQuery
     relation.paginate page: page, per_page: 10
   end
 
-  query_for :find do |id|
-    User.find(id)
-  end
-
   # Add queries by passing a block to the query_for method
 
 end
