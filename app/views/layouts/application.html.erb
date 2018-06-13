@@ -35,13 +35,6 @@
     <main id="<%= "#{controller_name}_#{action_name}" %>">
       <%= yield %>
     </main>
-
-    <div class="modal-mask">
-      <div class="modal">
-        <%= fa_icon('times', class: "modal-close-button") %>
-        <div class="modal-content">
-        </div>
-      </div>
-    </div>
+    
   </body>
 </html>
