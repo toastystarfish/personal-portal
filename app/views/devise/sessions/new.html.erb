@@ -10,7 +10,7 @@
         <%= f.email_field :email, autofocus: true, placeholder: 'Email address', class: "full-width" %>
       </div>
 
-      <div class="login-input-group top-space-16">
+      <div class="login-input-group margin-top-normal">
         <%= label_tag :password, fa_icon("lock") %>
         <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: "full-width" %>
       </div>
@@ -23,13 +23,13 @@
       </div>
     <% end -%>
 
-    <div class="text-center top-space-24">
+    <div class="text-center margin-top-medium">
 
       <div class="font-tiny">
         <%= render "devise/shared/links" %>
       </div>
 
-      <div class="top-space-32">
+      <div class="margin-top-large">
         <%= f.submit "Log in", class: "btn-primary" %>
       </div>
     </div>

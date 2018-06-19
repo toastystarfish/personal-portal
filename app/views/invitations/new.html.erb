@@ -11,7 +11,7 @@
     </section>
 
     <% if @invitation.errors.any? %>
-      <div class="top-space-16">
+      <div class="margin-top-normal">
         <ul class="no-list-style anim-slide-fade-up">
           <% @invitation.errors.full_messages.each do |message| %>
             <li class="font-small text-error"><%= fa_icon('exclamation-circle', text: message) %></li>
@@ -22,7 +22,7 @@
 
     <div class="text-right">
       <%= link_to "Cancel", users_path %>
-      <%= f.submit "Send Invitation", class: "left-space-16 btn-primary"  %>
+      <%= f.submit "Send Invitation", class: "margin-left-normal btn-primary"  %>
     </div>
   <% end %>
 </div>

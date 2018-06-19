@@ -25,7 +25,7 @@
 </section>
 
 <%% if <%= singular_table_name %>.errors.any? %>
-  <div class="top-space-16">
+  <div class="margin-top-normal">
     <ul class="no-list-style anim-slide-fade-up">
       <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
         <li class="font-small text-error"><%%= fa_icon('exclamation-circle', text: message) %></li> %>
@@ -34,8 +34,8 @@
   </div>
 <%% end %>
 
-  <div class="text-right top-space-24">
+  <div class="text-right margin-top-medium">
     <%%= link_to "Back to index", <%= table_name %>_path %>
-    <%%= f.button "Save", class: "btn-primary left-space-16" %>
+    <%%= f.button "Save", class: "btn-primary margin-left-normal" %>
   </div>
 <%% end %>

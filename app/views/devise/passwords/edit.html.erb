@@ -15,16 +15,16 @@
         <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "full-width" %>
       </div>
 
-      <div class="top-space-8">
+      <div class="margin-top-small">
         <%= f.label :password_confirmation, "Confirm new password" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "full-width" %>
       </div>
     </section>
 
-    <div class="text-center top-space-32">
+    <div class="text-center margin-top-large">
       <%= f.submit "Change my password", class: "btn-primary" %>
 
-      <div class="top-space-32 font-small">
+      <div class="margin-top-large font-small">
         <%= render "devise/shared/links" %>
       </div>
     </div>
