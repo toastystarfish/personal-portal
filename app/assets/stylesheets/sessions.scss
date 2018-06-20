@@ -18,8 +18,7 @@
   }
 
   label {
-    @include vertical-center;
-    left: 4px;
+    @include vertical-center($left: 4px);
     color: $app-color-primary;
     font-size: $font-medium;
     // Manually adjust the envelope size to bring it in line with the lock

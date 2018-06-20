@@ -34,18 +34,26 @@
 
 // Vertically center anything. Change position to relative if element doesn't
 // have a relatively positioned ancestor
-@mixin vertical-center($position: absolute) {
+@mixin vertical-center($position: absolute, $left: null, $right: null, $z-index: null) {
   position: $position;
   top: 50%;
   transform: translateY(-50%);
+  // In case any other positioning adjustments need to be made
+  left: $left;
+  right: $right;
+  z-index: $z-index;
 }
 
 // Horizontal center anything. Use only in extreme cases, there are usually
 // much better ways to horizontally center things
-@mixin horizontal-center($position: absolute) {
+@mixin horizontal-center($position: absolute, $top: null, $bottom: null, $z-index: null) {
   position: $position;
   left: 50%;
   transform: translateX(-50%);
+  // In case any other positioning adjustments need to be made
+  top: $top;
+  bottom: $bottom;
+  z-index: $z-index;
 }
 
 @mixin vertical-horizontal-center($position: absolute) {
@@ -75,12 +83,13 @@
 }
 
 // Define position + offset properties in a single line (note: SCSS ignores nulls)
-@mixin position($position: position, $top: null, $right: null, $bottom: null, $left: null) {
+@mixin position($position: position, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
   position: $position;
   top: $top;
   right: $right;
   bottom: $bottom;
   left: $left;
+  z-index: $z-index;
 }
 // Shorthand for an absolutely positioned element
 @mixin absolute($args...) {

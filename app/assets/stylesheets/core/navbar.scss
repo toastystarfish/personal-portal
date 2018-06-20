@@ -1,9 +1,8 @@
 @import "core/manifest";
 
 nav {
-  @include fixed($top: 0);
+  @include fixed($top: 0, $z-index: 1);
   @include box($width: 100%, $height: $navbar-height);
-  z-index: 1;
   background-color: $app-color-navbar;
   display: flex;
   padding: 0 16px;
@@ -44,10 +43,9 @@ nav > ul > li > a {
   position: relative;
   // Use pseudo-element to make the down caret
   &:after {
-    @include vertical-center;
+    @include vertical-center($right: 8px);
     @include unicode-fa-icon("\f107");
     color: $app-color-navbar-text;
-    right: 8px;
     pointer-events: none; // Make sure this element doesn't block mouse clicks
   }
   // Give extra room for the down caret

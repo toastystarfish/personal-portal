@@ -2,9 +2,7 @@
 @import "core/manifest";
 
 #notifly {
-  @include horizontal-center($position: fixed);
-  top: calc(#{$navbar-height} - 17px);
-  z-index: 1000;
+  @include horizontal-center($position: fixed, $top: calc(#{$navbar-height} - 17px), $z-index: 1000);
 
   .notice  { background-color: $blue; }
   .alert   { background-color: $red; }
@@ -26,8 +24,7 @@
     &.animate-out { animation: slide-fade-to-right .3s forwards; }
 
     .closer {
-      @include vertical-center;
-      right: 12px;
+      @include vertical-center($right: 12px);
       font-size: $font-medium;
       cursor: pointer;
     }
