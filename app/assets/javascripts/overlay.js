@@ -21,8 +21,6 @@ $(document).on('click', 'body', function (e) {
 // Add class to animate out, and use event listener to hide the element once done
 function overlay_fade_out(overlay_content) {
   overlay_content.addClass('anim-overlay-out').one('animationend', function() {
-    if (overlay_content.hasClass('anim-overlay-out')) {
-      overlay_content.removeClass('anim-overlay-out anim-overlay-in').hide();
-    }
+    overlay_content.removeClass('anim-overlay-out anim-overlay-in').hide();
   });
 }
