@@ -1,0 +1,11 @@
+// Default transition in / out for overlay elements. These can be overwritten
+// for specific overlays if needed
+[data-overlay-content] {
+  transform-origin: top;
+  transition: all .35s;
+
+  &:not(.is-open) {
+    transform: scaleY(.5);
+    opacity: 0;
+  }
+}

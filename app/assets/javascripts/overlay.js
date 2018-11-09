@@ -1,26 +1,25 @@
+// On click:
+// - Close open overlays (except the overlay this click originated in, if any)
+// - Open any overlays this element is linked to (if not already open)
+$(document).on('click', function(e) {
+  var closest_overlay_key     = e.target.closest('[data-overlay-key]'),
+      closest_overlay_content = e.target.closest('[data-overlay-content]'),
+      overlay_key_str = $(closest_overlay_key).data('overlay-key'),
+      overlay_content = $('[data-overlay-content=\'' + overlay_key_str + '\']');
 
-// Any click on an overlay container will:
-// - close all open overlays
-// - open this overlay, if it is not already open
-$(document).on('click', '[data-overlay=\'overlay_container\']', function (e) {
-  var overlay_content = $(this).find('[data-overlay=\'overlay_content\']');
-  e.stopPropagation();
-  // Close all open overlays
-  overlay_fade_out($('[data-overlay=\'overlay_content\']:visible'));
-  // Close the overlay if visible; otherwise show it
-  if (!overlay_content.is(':visible')) {
-    overlay_content.show().addClass('anim-overlay-in');
-  }
+  // Close open overlays (except the overlay this click originated in, if any)
+  overlay_fade_out($('[data-overlay-content]:visible').not(closest_overlay_content));
+
+  // Wait for show() to complete before adding .is-open (otherwise will not
+  // show transition)
+  overlay_content.not(":visible").show(0, function() {
+    overlay_content.addClass('is-open');
+  });
 });
 
-// Clicking anywhere on the page body while an overlay is open should close it
-$(document).on('click', 'body', function (e) {
-  overlay_fade_out($('[data-overlay=\'overlay_content\']:visible'));
-});
-
-// Add class to animate out, and use event listener to hide the element once done
+// Remove .is-open, allow overlay can transition out, then hide the element
 function overlay_fade_out(overlay_content) {
-  overlay_content.addClass('anim-overlay-out').one('animationend', function() {
-    overlay_content.removeClass('anim-overlay-out anim-overlay-in').hide();
+  overlay_content.removeClass('is-open').one('transitionend', function() {
+    overlay_content.hide();
   });
 }

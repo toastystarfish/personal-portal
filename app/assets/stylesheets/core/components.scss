@@ -11,9 +11,9 @@
 // This leverages 'overlay_container' and 'overlay_content' data attribtues
 //
 // Sample DOM structure:
-// <div class="dropdown-container" data-overlay="overlay_container">
+// <div class="dropdown-container" data-overlay-key="dropdown_1">
 //   Dropdown text
-//   <div class="dropdown-content" data-overlay="overlay_content">
+//   <div class="dropdown-content" data-overlay-content="dropdown_1">
 //     <ul>
 //       <li> <a> Dropdown element 1 </a> </li>
 //       <li> <a> Dropdown element 2 </a> </li>
