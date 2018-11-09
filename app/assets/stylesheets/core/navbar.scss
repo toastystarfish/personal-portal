@@ -35,6 +35,10 @@ nav > ul > li > a {
   &:hover::after {
     height: 3px;
   }
+  // If the nav item is the page you're currently on
+  &.nav-active {
+    background-color: rgba(black, .05);
+  }
 }
 
 

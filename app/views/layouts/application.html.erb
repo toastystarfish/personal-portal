@@ -16,7 +16,7 @@
       <nav>
         <%= link_to 'App name', root_path, class: "logo" %>
         <ul class="no-list-style flex-right">
-          <li> <%= link_to "Users", users_path %> </li>
+          <li> <%= link_to "Users", users_path, class: add_nav_active_css('users', 'index') %> </li>
 
           <li class="nav-dropdown-container" data-overlay-key="nav_dropdown">
             <a> <%= current_user.name %> </a>

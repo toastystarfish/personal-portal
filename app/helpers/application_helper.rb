@@ -33,4 +33,15 @@ module ApplicationHelper
       render partial: 'notifly/display_flash.js'
     end
   end
+
+  # Add .active CSS on navigation
+  def add_nav_active_css controller_str, action_str
+    active_css = ""
+
+    if controller_name.eql?(controller_str) && action_name.eql?(action_str)
+      active_css = "nav-active"
+    end
+
+    active_css
+  end
 end
