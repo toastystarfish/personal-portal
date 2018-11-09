@@ -2,7 +2,8 @@
 
 nav {
   @include fixed($top: 0, $z-index: 1);
-  @include box($width: 100%, $height: $navbar-height);
+  width: 100%;
+  $height: $navbar-height;
   background-color: $app-color-navbar;
   display: flex;
   padding: 0 16px;
@@ -26,7 +27,8 @@ nav > ul > li > a {
   // Use pseudo-element for bottom border
   &::after {
     @include absolute($left: 0, $bottom: 0);
-    @include box($width: 100%, $height: 0px);
+    width: 100%;
+    height: 0px;
     content: "";
     background-color: $app-color-navbar-hover;
     transition: all 100ms;

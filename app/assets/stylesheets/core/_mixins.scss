@@ -72,16 +72,6 @@
   border-radius: $app-border-radius;
 }
 
-// Helpful to group box properties together
-@mixin box($height: null, $width: null, $min-height: null, $max-height: null, $min-width: null, $max-width: null) {
-  height: $height;
-  width: $width;
-  min-height: $min-height;
-  max-height: $max-height;
-  min-width: $min-width;
-  max-width: $max-width;
-}
-
 // Define position + offset properties in a single line (note: SCSS ignores nulls)
 @mixin position($position: position, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
   position: $position;
