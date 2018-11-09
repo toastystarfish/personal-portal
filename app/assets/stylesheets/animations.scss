@@ -31,28 +31,5 @@
 }
 
 .anim-slide-fade-up {
-  animation: slide-fade-up .5s forwards;
-}
-
-
-// ---------- Overlay animate in ----------
-@keyframes overlay-in {
-  from {  opacity: 0;
-          transform: translateY(-10px) scaleY(.9);
-  }
-}
-
-.anim-overlay-in {
-  animation: overlay-in .25s forwards;
-}
-
-// ---------- Overlay animate out ----------
-@keyframes overlay-out {
-  to {  opacity: 0;
-        transform: translateY(-10px) scaleY(.9);
-  }
-}
-
-.anim-overlay-out {
-  animation: overlay-out .25s forwards;
+  animation: slide-fade-up .5s;
 }

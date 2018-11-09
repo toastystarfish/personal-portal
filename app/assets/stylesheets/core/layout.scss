@@ -16,7 +16,6 @@ main {
   width: $page-width-default;
   margin: 24px auto 0 auto;
   padding-bottom: 24px;
-  animation: slide-fade-up .5s forwards;
   height: 100%;
 }
 // A container for pages which contain a single form (like an edit page).
@@ -24,7 +23,6 @@ main {
   @include basic-card($padding: 32px 106px);
   width: $page-width-single-form;
   margin: 24px auto 0 auto;
-  animation: slide-fade-up .5s forwards;
 }
 
 
@@ -92,7 +90,7 @@ th {
     font-style: normal;
     cursor: default;
   }
-  
+
   a {
     @include no-link-style($text-color: $text-secondary);
     &:hover { background-color: $grey-6; }
