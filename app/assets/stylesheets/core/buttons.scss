@@ -22,33 +22,9 @@ input.link, button.link {
   background-color: unset;
 }
 
-
-// Base styles for button
-.button-base {
-  @include appearance-none; // Clear browser-specific styles
-  @include no-link-style;   // Clear styles (if turning <a> element into button)
-  cursor: pointer;
-
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: $app-border-radius;
-
-  line-height: 1;
-  font-weight: 500;
-  transition: all 50ms;
-  // Disabled button - duplicate styles for hover so that other
-  // button hover states don't persist
-  &.disabled, &.disabled:hover {
-    background-color: $grey-5;
-    border: 1px solid $grey-7;
-    color: $text-hint;
-    cursor: not-allowed;
-  }
-}
-
 // ----- Default submit button / primary button -----
 .btn-primary {
-  @extend .button-base;
+  @include button-base;
   border: 1px solid $app-color-button;
   background-color: $app-color-button;
   color: $text-light;
@@ -60,7 +36,7 @@ input.link, button.link {
 }
 
 .btn-secondary {
-  @extend .button-base;
+  @include button-base;
   background-color: transparent;
   border: 1px solid $app-color-button;
   color: $app-color-button;
@@ -72,7 +48,7 @@ input.link, button.link {
 }
 
 .btn-tertiary {
-  @extend .button-base;
+  @include button-base;
   font-weight: 400;
   background-color: white;
   border: 1px solid $grey-7;
