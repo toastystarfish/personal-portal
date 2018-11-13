@@ -14,7 +14,12 @@
     <%= notifly_template %>
     <% unless current_user.nil? %>
       <nav>
-        <%= link_to 'App name', root_path, class: "logo" %>
+        <%# Placeholder logo, replace with whatever real logo is %>
+        <%= link_to root_path, class: "logo-container" do %>
+          <%= image_tag 'tyemill-placeholder-logo.png', class: "logo" %>
+          <span class="padding-left-small"> App name </span>
+        <% end %>
+
         <ul class="no-list-style flex-right">
           <li> <%= link_to "Users", users_path, class: add_nav_active_css('users', 'index') %> </li>
 

@@ -3,7 +3,7 @@
 nav {
   @include fixed($top: 0, $z-index: 1);
   width: 100%;
-  $height: $navbar-height;
+  height: $navbar-height;
   background-color: $app-color-navbar;
   display: flex;
   padding: 0 16px;
@@ -70,4 +70,14 @@ nav > ul > li > a {
   a:hover {
     color: $app-color-navbar-hover;
   }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 65%;
 }
