@@ -3,46 +3,72 @@
  */
 
 // Define css variables
-$app_line_height:     1.5;
-$header_height:       2em;
-$container_width:     980px;
-$icon_line_height:    1.15;
+$app-line-height:        1.5;
+$navbar-height:          64px;
+$page-width-default:     800px;
+$page-width-single-form: 500px;
+$app-border-radius:      3px;
+
+// Colors
+$red:                 #D32F2F;
+$orange:              #FF8334;
+$orange-light:        #FFAB00;
+$green:               #4CAF50;
+$teal:                #009688;
+$blue-light:          #64B5F6;
+$blue:                #1976D2;
+$indigo:              #303F9F;
+$purple:              #7E57C2;
+
+// Greys
+// Greys
+// -- Comment in as needed --
+// $grey-1:           #fcfcfc;
+$grey-2:           #fafafa;
+$grey-3:           #f8f8f8;
+$grey-4:           #f5f5f5;
+$grey-5:           #f3f3f3;
+$grey-6:           #f0f0f0;
+$grey-7:           #eaeaea;
+// $grey-8:           #eeeeee;
+// $grey-9:           #ececec;
+// $grey-10:          #dddddd;
+$grey-11:          #d0d0d0;
+// $grey-12:          #b0b0b0;
+// $grey-13:          #aaaaaa;
+// $grey-14:          #7f8c8d;
+// $grey-15:          #5e686e;
 
 
-//Colors
-$green:            #43AC6A;
-$green_dark:       #368a55;
-$green_light:      #C3E88D;
+$text-primary:     rgba(0, 0, 0, .87);
+$text-secondary:   rgba(0, 0, 0, .54);
+$text-hint:        rgba(0, 0, 0, .38);
+$text-placeholder: rgba(0, 0, 0, .30);
+$text-light:       white;
 
-$blue:             #1779ba;
-$blue_dark:        #285e8e;
-$blue_light:       #008CBA;
+// Components Colors
+$app-color-primary:      #0277bd;
+$app-color-light-accent: #e1f5fe;
+$app-color-background:   $grey-2;       // Used as default page background
+$app-color-border:       $grey-7;
+$app-color-link:         $app-color-primary;
+$app-color-button:       $app-color-primary;
+$app-color-button-hover: lighten($app-color-primary, 8%);
+$app-color-error:        $red;
+// Use for icons which are action buttons
+$app-color-icon:         rgba(0, 0, 0, .38);
+$app-color-icon-hover:   rgba(0, 0, 0, .54);
+// Navbar colors
+$app-color-navbar:       $grey-2;
+$app-color-navbar-text:  $text-primary;
+$app-color-navbar-hover: $app-color-primary;
 
-$red:              #c0392b;
-$red_dark:         #a32a2a;
-$red_light:        #f04124;
-
-$orange:           #E99D28;
-$orange_light:     #ffae00;
-
-$gray:             #7f8c8d;
-$gray_dark:        #5e686e;
-$gray_light:       #ececec;
-
-//Components Colors
-$app_font_color:  #384d5a;
-$link_color:  $blue;
-$link_active: $green;
-$table_border:    $gray_light;
-$placeholder_color: #cacaca;
-
-// https://webdevstudios.com/2015/01/28/mapping-icon-fonts-with-sass/
-$font-icon: "FontAwesome";
-
-// Map icon names to font unicode characters
-$icons: (
-  save: "\f0c7",
-  cancel: "\f0e2",
-  back: "\f0a8",
-  list: "\f03a",
-);
+// font sizes
+$font-minuscule: .625rem;
+$font-tiny:      .75rem;
+$font-small:     .875rem;
+$font-normal:    1rem;
+$font-medium:    1.25rem;
+$font-large:     1.5rem;
+$font-huge:      2rem;
+$font-enormous:  3rem;

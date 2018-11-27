@@ -24,7 +24,7 @@ gem 'datum'                     # Testing utilities
 
 # OUR FAVORITE GEMS
 
-gem 'devise'                    # User authentication
+gem 'devise', '~> 4.4.0'        # User authentication
 gem 'pundit'                    # Controller action permissions
 gem 'will_paginate'             # Simple pagination helpers
 # gem 'sidekiq'                 # Enables ActiveJob

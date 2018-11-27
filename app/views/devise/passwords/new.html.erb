@@ -1,15 +1,21 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <% devise_error_messages! %>
+<div class="page-container-single-form">
+  <h2 class="text-center">Forgot your password?</h2>
 
-  <div class="input-group">
-    <%= content_tag(:label, fa_icon("envelope")) %>
-    <%= f.email_field :email, autofocus: true, placeholder: 'Email address' %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "stacked-form" }) do |f| %>
+    <% devise_error_messages! %>
 
-  <%= f.submit "Send me reset password instructions" %>
+    <section>
+      <div class="login-input-group">
+        <%= content_tag(:label, fa_icon("envelope")) %>
+        <%= f.email_field :email, autofocus: true, placeholder: 'Email address', class: "full-width" %>
+      </div>
+    </section>
 
-<% end %>
+    <%= f.submit "Send me reset password instructions", class: "link" %>
 
-<%= render "devise/shared/links" %>
+    <div class="text-center font-small margin-top-large">
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+</div>

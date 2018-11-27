@@ -1,26 +1,28 @@
-<div class="form-page">
-  <%= form_for(@invitation) do |f| %>
-  <% if @invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+<div class="page-container-single-form">
+  <%= form_for(@invitation, html: {class: "stacked-form"}) do |f| %>
+    <%= f.hidden_field :invited_by_id  %>
 
-      <ul>
-        <% @invitation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <h2>Invite New User</h2>
+    <section>
+      <div class="stacked-form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, :required => true, class: "full-width" %>
+      </div>
+    </section>
+
+    <% if @invitation.errors.any? %>
+      <div class="margin-top-normal">
+        <ul class="no-list-style anim-slide-fade-up">
+          <% @invitation.errors.full_messages.each do |message| %>
+            <li class="font-small text-error"><%= fa_icon('exclamation-circle', text: message) %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="text-right">
+      <%= link_to "Cancel", users_path %>
+      <%= f.submit "Send Invitation", class: "margin-left-normal btn-primary"  %>
     </div>
-  <% end %>
-
-  <%= f.hidden_field :invited_by_id  %>
-  <h1>Invite New User</h1>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Send Invitation", :class => "button submit" %>
-    <%= link_to "Cancel", users_path, :class => "cancel button" %>
-  </div>
   <% end %>
 </div>

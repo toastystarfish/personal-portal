@@ -1,0 +1,75 @@
+@import "core/manifest";
+
+// ----------  components.scss  ----------
+//
+// Includes classes for reusable components that are more complex than utility
+// classes.
+
+
+// ------- Dropdown with more control over styling than default select -------
+//
+// This leverages 'overlay_container' and 'overlay_content' data attribtues
+//
+// Sample DOM structure:
+// <div class="dropdown-container" data-overlay-key="dropdown_1">
+//   Dropdown text
+//   <div class="dropdown-content" data-overlay-content="dropdown_1">
+//     <ul>
+//       <li> <a> Dropdown element 1 </a> </li>
+//       <li> <a> Dropdown element 2 </a> </li>
+//     </ul>
+//   </div>
+// </div>
+//
+// This is the container for the dropdown.
+.dropdown-container {
+  cursor: pointer;
+  position: relative;
+  display: inline;
+  padding: 8px 24px 8px 8px;
+  // Use pseudo-element to make the down caret
+  &:after {
+    @include vertical-center($right: 8px);
+    @include unicode-fa-icon("\f107");
+    pointer-events: none; // Make sure this element doesn't block mouse clicks
+  }
+}
+// This is the content for the dropdown
+.dropdown-content {
+  @include basic-card($padding: 8px 0);
+  @include absolute($left: 0, $top: 36px, $z-index: 1);
+  display: none;
+  min-width: 100%;
+  white-space: nowrap;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
+
+  ul {
+    @include no-list-style;
+  }
+
+  a {
+    @include no-link-style;
+    display: block;
+    padding: 8px 16px;
+
+    &:hover:not(.disabled) { background-color: $grey-5; }
+    &.disabled { color: $text-hint; }
+  }
+}
+
+
+// ------- Form where all elements are stacked above each other -------
+//
+// Use a <section> inside a basic form to group related inputs together
+form.stacked-form section {
+  margin: 24px auto;
+}
+
+.stacked-form-field label {
+  display: block;
+}
+
+.stacked-form-field + .stacked-form-field {
+  margin-top: 8px;
+}
+// ----------------------------------------------------------------------

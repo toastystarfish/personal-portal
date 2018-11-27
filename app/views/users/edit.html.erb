@@ -1,5 +1,5 @@
 
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user, token: nil %>
-<%= link_to 'Show', @user %>
+<div class="page-container-single-form">
+  <h2> <%= @user.name %> </h2>
+  <%= render 'form', user: @user, token: nil %>
+</div>

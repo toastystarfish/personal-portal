@@ -1,22 +1,31 @@
 
-<h1>Users</h1>
-<%= link_to 'Invite a User', new_invitation_path if current_user.admin? %>
+<div class="page-container">
+  <header class="flex-baseline">
+    <h2>Users</h2>
+    <div class="flex-right">
+      <%= link_to fa_icon('user-plus', text: 'Invite a User'), new_invitation_path, class: "btn-secondary" if current_user.admin? %>
+    </div>
+  </header>
 
-<table>
-  <thead>
-    <tr>
-      <%= sortable_column_header :name, sort_by: :first_name %>
-      <%= sortable_column_header :email %>
-    </tr>
-  </thead>
+  <div class="margin-top-medium">
+    <table class="index-table">
+      <thead>
+        <tr>
+          <%= sortable_column_header :name, sort_by: :first_name %>
+          <%= sortable_column_header :email %>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-        <td><%= user.email %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @users %>
+      <tbody class="basic-card-no-padding">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @users, inner_window: 1, outer_window: 0,
+        previous_label: fa_icon('angle-left'), next_label: fa_icon('angle-right') %>
+  </div>
+</div>

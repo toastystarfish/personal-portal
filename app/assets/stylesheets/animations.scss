@@ -1,0 +1,35 @@
+@import "core/manifest";
+
+// ---------- Generalized slide / fade / scale from top ----------
+@keyframes slide-fade-scale-from-top {
+  from {  transform: translateY(-10px) scale(.95);
+          opacity: 0;
+  }
+}
+
+// ---------- Used to animate out notifly messages ----------
+@keyframes slide-fade-to-right {
+  0%   {  opacity: 1;
+          right: 0;
+  }
+  70%  {  opacity: 0;
+          right: 64px;
+  }
+  100%  { opacity: 0;
+          right: 128px;
+          height: 0;
+          margin: 0;
+          padding: 0;
+  }
+}
+
+// ---------- General slide / fade up ----------
+@keyframes slide-fade-up {
+  from { transform: translateY(10px);
+         opacity: 0;
+  }
+}
+
+.anim-slide-fade-up {
+  animation: slide-fade-up .5s;
+}

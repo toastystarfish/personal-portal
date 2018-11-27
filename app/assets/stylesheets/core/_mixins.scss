@@ -2,31 +2,130 @@
  * Put SCSS Mixins here
  */
 
- @mixin icon($position: before, $icon: false, $styles: true) {
-   @if $position == both {
-     $position: 'before, &:after';
-   }
-   // Either a :before or :after pseudo-element, or both, defaulting to :before
-   &:#{$position} {
-     @if $icon {
-       // A particular icon has been specified
-       content: "#{map-get($icons, $icon)}";
-     }
-     @if $styles {
-       // Supportive icon styles required
-       speak: none;
-       font-style: normal;
-       font-weight: normal;
-       font-family: $font-icon;
-       text-align: center;
-       font-size:1.3em;
-       color:$app_font_color;
-       //width:50px;
-       //line-height: $icon_line_height;
-       //opacity: 0.5;
-       vertical-align: middle;
-     }
-     // Include any extra rules supplied for the pseudo-element
-     @content;
-   }
- }
+// Use to clear any browser-specific appearance styles
+@mixin appearance-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+// Clear default styling from a <ul> element
+@mixin no-list-style {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+// Clear the style from a link
+// Text defaults to normal text color, but can optionally set another one
+@mixin no-link-style($text-color: $text-primary) {
+  text-decoration: none;
+  color: $text-color;
+  &:hover { text-decoration: none; }
+}
+
+// Prevent user from being able to highlight text on an element
+@mixin no-user-select {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+// Vertically center anything. Change position to relative if element doesn't
+// have a relatively positioned ancestor
+@mixin vertical-center($position: absolute, $left: null, $right: null, $z-index: null) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+  // In case any other positioning adjustments need to be made
+  left: $left;
+  right: $right;
+  z-index: $z-index;
+}
+
+// Horizontal center anything. Use only in extreme cases, there are usually
+// much better ways to horizontally center things
+@mixin horizontal-center($position: absolute, $top: null, $bottom: null, $z-index: null) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+  // In case any other positioning adjustments need to be made
+  top: $top;
+  bottom: $bottom;
+  z-index: $z-index;
+}
+
+@mixin vertical-horizontal-center($position: absolute) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Defaults to a "card" with border, 16px padding and white background.
+// If changing padding, try to keep as a multiple of 8
+@mixin basic-card($padding: 16px, $background-color: white, $border-color: $app-color-border) {
+  padding: $padding;
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  border-radius: $app-border-radius;
+}
+
+// Define position + offset properties in a single line (note: SCSS ignores nulls)
+@mixin position($position: position, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+// Shorthand for an absolutely positioned element
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+// Shorthand for a relatively positioned element
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+// Shorthand for a fixed position element
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+// Use to truncate text with an ellipsis
+@mixin truncate-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// Display a font-awesome icon (generally used on a pseudo-element)
+@mixin unicode-fa-icon($unicode-icon, $font-size: $font-normal) {
+  content: $unicode-icon;
+  font: normal normal normal $font-size/1 FontAwesome;
+}
+
+// Base styles for button
+@mixin button-base {
+  @include appearance-none; // Clear browser-specific styles
+  @include no-link-style;   // Clear styles (if turning <a> element into button)
+  cursor: pointer;
+
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: $app-border-radius;
+
+  line-height: 1;
+  font-weight: 500;
+  transition: all 50ms;
+  // Disabled button - duplicate styles for hover so that other
+  // button hover states don't persist
+  &.disabled, &.disabled:hover {
+    background-color: $grey-5;
+    border: 1px solid $grey-7;
+    color: $text-hint;
+    cursor: not-allowed;
+  }
+}

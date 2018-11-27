@@ -1,0 +1,31 @@
+@import "core/manifest";
+
+// The tooltip pseudo-element will display on hovering a DOM element with the
+// data-tooltip attribute (value of attribute will be tooltip text)
+[data-tooltip] {
+  position: relative;
+  // Text of tooltip is the text in the data-tooltip attribute
+  &:hover:after {
+    // Neg bottom means tooltip displays below item regardless of height
+    @include horizontal-center($bottom: -38px, $z-index: 999);
+    content: attr(data-tooltip); // Use data-tooltip HTML attribute for text
+    white-space: nowrap;
+    background-color: black;
+    color: $text-light;
+    line-height: 1;
+    padding: 8px;
+    font-size: $font-small;
+    pointer-events: none;
+  }
+  // Position tooltip so left edge matches parent
+  &.tip-pos-left:after {
+    left: 0;
+    transform: translateX(0);
+  }
+  // Position tooltip so left edge matches parent
+  &.tip-pos-right:after {
+    left: unset;
+    right: 0;
+    transform: translateX(0);
+  }
+}
