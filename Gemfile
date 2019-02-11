@@ -17,6 +17,7 @@ gem 'jquery-rails'              # Use jquery as the Javascript library
 gem 'turbolinks', '~> 5'        # Increases performance of web application
 # gem 'redis', '~> 3.0'         # In memory datastore, required by actioncable
                                 # and sidekiq
+gem 'bootsnap'                  # faster app initialization
 
 # TYEMILL CREATED GEMS
 
