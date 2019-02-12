@@ -56,7 +56,7 @@ class UsersController < ResourcesController
   end
 
   def authenticate_user!
-    super unless invitation.present? && invitation.accepted_at.nil?
+    super #unless invitation.present? && invitation.accepted_at.nil?
   end
 
   def updating_self?
