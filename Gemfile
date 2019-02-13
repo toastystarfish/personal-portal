@@ -21,7 +21,7 @@ gem 'bootsnap'                  # faster app initialization
 
 # TYEMILL CREATED GEMS
 
-gem 'datum'                     # Testing utilities
+gem 'datum', source: 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/' # Testing utilities
 # gem 'jaunt'                   # Performant .xlsx file parsing
 
 # OUR FAVORITE GEMS
