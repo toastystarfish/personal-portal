@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 # lc41 gem server, gems found here will be prioritized over rubygems
 source 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/'
+ruby "2.5.0"
 
 #dotenv recomends being the first gem included
 gem 'dotenv-rails', groups: [:development, :test] # application environment vars
 
 # RAILS DEFAULTS
 
-gem 'rails', '~> 5.0.2'         # Provides rails framework
+gem 'rails', '~> 5.2.0'         # Provides rails framework
 gem 'pg', '~> 0.18'             # Use postgres with Active Record
 gem 'puma', '~> 3.0'            # Use Puma as the app server
 gem 'sass-rails', '~> 5.0'      # Use SCSS for stylesheets
@@ -16,6 +17,7 @@ gem 'jquery-rails'              # Use jquery as the Javascript library
 gem 'turbolinks', '~> 5'        # Increases performance of web application
 # gem 'redis', '~> 3.0'         # In memory datastore, required by actioncable
                                 # and sidekiq
+gem 'bootsnap'                  # faster app initialization
 
 # TYEMILL CREATED GEMS
 
@@ -51,6 +53,3 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'      # Dependency of spring
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
