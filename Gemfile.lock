@@ -208,7 +208,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
-  datum
+  datum!
   devise (~> 4.4.0)
   dotenv-rails
   font-awesome-rails
