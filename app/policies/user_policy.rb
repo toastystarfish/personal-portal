@@ -1,5 +1,15 @@
 
 class UserPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
+
+  def index?
+    true
+  end
+
   def owners_or_admins?
     user.owner? || user.admin?
   end
@@ -25,4 +35,8 @@ class UserPolicy < ApplicationPolicy
   end
   alias :new? :was_invited?
   alias :create? :was_invited?
+
+  def permitted_attributes
+    %i[first_name last_name email password password_confirmation]
+  end
 end

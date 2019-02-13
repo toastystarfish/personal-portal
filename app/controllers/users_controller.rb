@@ -2,7 +2,7 @@ class UsersController < ResourcesController
   resource_model User
 
   before_action :authenticate_user!, except: [:create]
-  before_action :set_user, only: [:update]
+  # before_action :set_user, only: [:update]
 
   def new
     sign_out
@@ -46,10 +46,6 @@ class UsersController < ResourcesController
   end
 
   private
-
-  def set_user
-    @user = UsersQuery.find params[:id]
-  end
 
   def invitation
     @invitation ||= InvitationsQuery.first_with_token params[:token]

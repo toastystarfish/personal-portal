@@ -10,6 +10,10 @@ class ApplicationQuery
     @model ||= const_get self.name.gsub(/Query/, '').singularize
   end
 
+  def self.find(id)
+    model.find(id)
+  end
+
   def self.scope_for_user(user)
     scope = Pundit.policy_scope(user, model)
     new(scope: scope)
@@ -34,4 +38,11 @@ class ApplicationQuery
   def find_by attribute_hash
     scope.find_by attribute_hash
   end
+
+  def index(page, sort={})
+    relation = User
+    relation = relation.order(sort) unless sort.blank?
+    relation.paginate page: page, per_page: 10
+  end
+
 end
