@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   remote: https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/
-  remote: https://gem.fury.io/lc41/
   specs:
     actioncable (5.2.2)
       actionpack (= 5.2.2)
