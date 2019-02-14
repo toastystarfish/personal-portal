@@ -36,15 +36,7 @@ class UserPolicy < ApplicationPolicy
   alias :new? :was_invited?
   alias :create? :was_invited?
 
-  def permitted_attributes_for_create
-    %i[first_name last_name email password password_confirmation]
-  end
-
-  def permitted_params_for_update_no_pass
-    %i[first_name last_name email]
-  end
-
-  def permitted_params_for_update_with_pass
+  def permitted_attributes
     %i[first_name last_name email password password_confirmation]
   end
 end

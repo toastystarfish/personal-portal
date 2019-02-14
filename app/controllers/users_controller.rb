@@ -30,7 +30,7 @@ class UsersController < ResourcesController
   end
 
   def update
-    @user.assign_attributes user_params_for_update
+    @user.assign_attributes(permitted_attributes(@user))
     authorize @user
 
     respond_to do |format|
@@ -61,13 +61,5 @@ class UsersController < ResourcesController
 
   def updating_password?
     params[:user][:password].present?
-  end
-
-  def user_params_for_update
-    if updating_password?
-      params.require(:user).permit(policy(@user).permitted_params_for_update_with_pass)
-    else
-      params.require(:user).permit(policy(@user).permitted_params_for_update_with_pass)
-    end
   end
 end
