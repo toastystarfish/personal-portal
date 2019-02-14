@@ -35,7 +35,7 @@ class <%= class_name %>Policy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [<%= attributes_names %>]
+    %i[<%= attribute_names.join(' ') %>]
   end
 end
 <% end -%>

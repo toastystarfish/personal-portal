@@ -12,13 +12,7 @@ module Rails
 
       # create a policy for the resource
       def create_policy
-        puts attributes
-        PolicyGenerator.start [name], attributes_names: attributes_names
-        # Pundit::Generators::PolicyGenerator.start options[:model_name]
-        #
-        # inject_into_file "app/policies/#{name}_policy.rb", after: "  def permitted_attributes\n" do
-        #   "    [#{attributes_names.map { |name| ":#{name}" }.join(', ')}]\n"
-        # end
+        PolicyGenerator.start [name, *attributes_names], behavior: behavior
       end
     end
   end

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :blah do
-    resources :posts
-  end
-  resources :posts
   devise_for :users
   resources :users
   root 'users#index'
