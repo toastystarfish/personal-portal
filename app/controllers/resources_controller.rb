@@ -122,10 +122,6 @@ class ResourcesController < ApplicationController
     self.send "#{resource_name}_params"
   end
 
-  def set_ivar(name, value)
-    instance_variable_set(:"@#{name}", value)
-  end
-
   def resources
     get_ivar(resource_name.pluralize)
   end
@@ -140,6 +136,10 @@ class ResourcesController < ApplicationController
 
   def resource=(value)
     set_ivar(resource_name, value)
+  end
+
+  def set_ivar(name, value)
+    instance_variable_set(:"@#{name}", value)
   end
 
   def get_ivar(name)
