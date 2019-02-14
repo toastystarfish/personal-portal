@@ -6,14 +6,14 @@ class UsersController < ResourcesController
 
   def new
     sign_out
-    super
+    @user = User.new
     @user.email = invitation.email unless invitation.blank?
     authorize @user
     @token = params[:token]
   end
 
   def create
-    @user = User.new user_params.except(:roles_mask)
+    @user = User.new(permitted_attributes(User))
     @user.invitation&.assign_attributes token: params[:token]
     authorize @user
 
@@ -52,7 +52,7 @@ class UsersController < ResourcesController
   end
 
   def authenticate_user!
-    super #unless invitation.present? && invitation.accepted_at.nil?
+    super unless invitation.present? && invitation.accepted_at.nil?
   end
 
   def updating_self?
@@ -60,23 +60,14 @@ class UsersController < ResourcesController
   end
 
   def updating_password?
-    user_params[:password].present?
+    params[:user][:password].present?
   end
 
   def user_params_for_update
-    user_params.tap do |par|
-      # unless you are changing your password to something new we dont want to
-      # update this attribute
-      unless updating_password?
-        par.delete :password
-        par.delete :password_confirmation
-      end
+    if updating_password?
+      params.require(:user).permit(policy(@user).permitted_params_for_update_with_pass)
+    else
+      params.require(:user).permit(policy(@user).permitted_params_for_update_with_pass)
     end
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password,
-      :password_confirmation)
   end
 end

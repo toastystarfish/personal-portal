@@ -75,6 +75,7 @@ class ResourcesController < ApplicationController
   # default destroy action
   # success redirects to index
   def destroy
+    authorize(resource)
     resource.destroy
     respond_to do |format|
       success_str = "#{resource_class.name.humanize} was successfully destroyed."

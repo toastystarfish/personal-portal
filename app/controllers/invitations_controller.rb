@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
 
   # creates the invitation and delivers it to the user
   def create
-    @invitation = Invitation.new(invitation_params)
+    @invitation = Invitation.new(permitted_attributes(Invitation))
 
     authorize @invitation
     # remove old unaccepted invitations
@@ -32,8 +32,8 @@ class InvitationsController < ApplicationController
 
   private
 
-  def invitation_params
-    params.require(:invitation).permit(:invited_by_id, :sent_at,
-                                       :accepted_at, :token, :email)
-  end
+  # def invitation_params
+  #   params.require(:invitation).permit(:invited_by_id, :sent_at,
+  #                                      :accepted_at, :token, :email)
+  # end
 end

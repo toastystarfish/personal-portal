@@ -10,7 +10,7 @@ class ApplicationQuery
   ## Start legacy code for compat ##
   ##################################
   def self.query_for *method_names, &block
-    method_names.each {|name| define_method name, &block}
+    method_names.each {|name| define_method name, &block;  define_singleton_method name, &block }
   end
 
 

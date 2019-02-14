@@ -9,6 +9,10 @@ class InvitationPolicy < ApplicationPolicy
     standard_check && User.where(email: record.email).empty?
   end
 
+  def permitted_attributes
+    %i[invited_by_id sent_at accepted_at token email]
+  end
+
 private
 
   def admin_or_owner?
