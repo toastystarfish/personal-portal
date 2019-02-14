@@ -29,11 +29,4 @@ class InvitationsController < ApplicationController
       end
     end
   end
-
-  private
-
-  # def invitation_params
-  #   params.require(:invitation).permit(:invited_by_id, :sent_at,
-  #                                      :accepted_at, :token, :email)
-  # end
 end
