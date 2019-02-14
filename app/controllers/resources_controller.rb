@@ -33,12 +33,12 @@ class ResourcesController < ApplicationController
   end
 
   def new
-    set_ivar(resource_name, resource_class.new)
+    self.resource = resource_class.new
     authorize(resource)
   end
 
   def create
-    set_ivar(resource_name, resource_class.new(permitted_attributes(resource_class)))
+    self.resource = resource_class.new(permitted_attributes(resource_class))
     authorize(resource)
 
     respond_to do |format|
