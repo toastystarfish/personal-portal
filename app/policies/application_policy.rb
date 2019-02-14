@@ -44,6 +44,6 @@ class ApplicationPolicy
   # break.
   # Override in your policy
   def permitted_attributes
-    []
+    %i[]
   end
 end

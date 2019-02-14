@@ -2,7 +2,6 @@ class UsersController < ResourcesController
   resource_model User
 
   before_action :authenticate_user!, except: [:create]
-  # before_action :set_user, only: [:update]
 
   def new
     sign_out

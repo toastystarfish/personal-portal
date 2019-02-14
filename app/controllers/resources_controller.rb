@@ -171,21 +171,8 @@ class ResourcesController < ApplicationController
 
   protected
 
-  def resource_query
-    resource_query_class.new(scope: policy_scope(resource_class))
-  end
-
-  def resource_query_class
-    self.class.resource_query_class
-  end
-
   def self.resource_query_class
     Rails.const_get("#{resource_name.pluralize.camelize}Query")
-  end
-
-  # returns the class provided to resource_model in the child controllers
-  def resource_class
-    self.class.resource_class
   end
 
   def self.resource_class
@@ -194,6 +181,19 @@ class ResourcesController < ApplicationController
 
   def self.resource_name
     resource_class.name.underscore
+  end
+
+  def resource_query_class
+    self.class.resource_query_class
+  end
+
+  def resource_query
+    resource_query_class.new(scope: policy_scope(resource_class))
+  end
+
+  # returns the class provided to resource_model in the child controllers
+  def resource_class
+    self.class.resource_class
   end
 
   # Just underscores the class name provided by resource_class
