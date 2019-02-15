@@ -1,3 +1,25 @@
+# This class should be backwards compatible w/ the old way of doing queries
+#
+# Now Queries should be written like this:
+# @example:
+# class PostsQuery
+#   # use instance methods instead of query_for macro
+#   def index(page, sort_params)
+#     # reference scope instead of model or model class(Post)
+#     scope.include(:author)
+#   end
+# end
+# # USAGE
+# # usage w/ controller helper, automatically scopes by pundit scope
+# resource_query.index(page, sort_params)
+# # usage w/ pundit scope outsite of a controller
+# PostsQuery.scope_for_user(current_user).index(page, sort_params)
+# # or without helper
+# PostsQuery.new(Pundit.policy_scope(user, Post)).index(page, sort_params)
+# # passing in a custom scope
+# PostsQuery.new(Post.published).index(page, sort_params)
+# # or without scoping by anything
+# PostsQuery.new.index(page, sort_params)
 
 class ApplicationQuery
   attr_reader :scope
@@ -56,7 +78,7 @@ class ApplicationQuery
   end
 
   def index(page, sort={})
-    relation = User
+    relation = scope
     relation = relation.order(sort) unless sort.blank?
     relation.paginate page: page, per_page: 10
   end
