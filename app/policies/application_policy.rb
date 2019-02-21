@@ -38,38 +38,12 @@ class ApplicationPolicy
     end
   end
 
-  # default behavior for all controller index actions.
-  # default to not allowed to all users (...or empty method)
-  def index?
-  end
 
-  # default behavior for all controller new actions.
-  # default to not allowed to all users (...or empty method)
-  def new?
-  end
-
-  # default behavior for all controller show actions.
-  # default to not allowed to all users (...or empty method)
-  def show?
-  end
-
-  # default behavior for all controller edit actions.
-  # default to not allowed to all users (...or empty method)
-  def edit?
-  end
-
-  # default behavior for all controller update actions.
-  # default to not allowed to all users (...or empty method)
-  def update?
-  end
-
-  # default behavior for all controller create actions.
-  # default to not allowed to all users (...or empty method)
-  def create?
-  end
-
-  # default behavior for all controller destroy actions.
-  # default to not allowed to all users (...or empty method)
-  def destroy?
+  # Strong Params through pundit
+  # Default is an empty array so a non scaffolded resource controller doesn't
+  # break.
+  # Override in your policy
+  def permitted_attributes
+    %i[]
   end
 end

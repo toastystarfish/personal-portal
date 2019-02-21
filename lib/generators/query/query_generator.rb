@@ -8,7 +8,7 @@ class QueryGenerator < ::Rails::Generators::NamedBase
                desc: "Query should be generated with required action queries for ResourcesController"
 
   def create_query_object
-    template 'query.rb', "app/queries/#{controller_file_name}_query.rb"
+    template 'query.rb', File.join('app/queries', class_path, "#{controller_file_name}_query.rb")
   end
 
   protected

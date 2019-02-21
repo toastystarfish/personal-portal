@@ -1,3 +1,4 @@
+<% module_namespacing do -%>
 
 class <%= controller_class_name %>Query < ApplicationQuery
   <% if resource? %>
@@ -12,3 +13,4 @@ class <%= controller_class_name %>Query < ApplicationQuery
   # Add queries by passing a block to the query_for method
 
 end
+<% end -%>
