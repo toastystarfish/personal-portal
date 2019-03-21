@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 # lc41 gem server, gems found here will be prioritized over rubygems
 source 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/'
-ruby "2.5.0"
+ruby "2.6.2"
 
 #dotenv recomends being the first gem included
 gem 'dotenv-rails', groups: [:development, :test] # application environment vars

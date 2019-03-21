@@ -6,10 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Baseline
+module PersonalPortal
   class Application < Rails::Application
     # Allow pure sql migrations
-    config.active_record.schema_format = :sql
+    # config.active_record.schema_format = :sql
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.0
 
