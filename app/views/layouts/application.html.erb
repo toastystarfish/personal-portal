@@ -12,31 +12,8 @@
 
   <body>
     <%= notifly_template %>
-    <% unless current_user.nil? %>
-      <nav>
-        <%# Placeholder logo, replace with whatever real logo is %>
-        <%= link_to root_path, class: "logo-container" do %>
-          <%= image_tag 'tyemill-placeholder-logo.png', class: "logo" %>
-          <span class="padding-left-small"> App name </span>
-        <% end %>
-
-        <ul class="no-list-style flex-right">
-          <li> <%= link_to "Users", users_path, class: add_nav_active_css('users', 'index') %> </li>
-
-          <li class="nav-dropdown-container" data-overlay-key="nav_dropdown">
-            <a> <%= current_user.name %> </a>
-            <div class="nav-dropdown" data-overlay-content="nav_dropdown">
-              <ul class="no-list-style">
-                <li><%= link_to "My Account", current_user %></li>
-                <li><%= link_to "Sign Out", sign_out_path %></li>
-              </ul>
-            </div>
-          </li>
-
-        </ul>
-      </nav>
-    <% end %>
-
+    
+    <%# <nav></nav> %>
     <main id="<%= "#{controller_name}_#{action_name}" %>">
       <%= yield %>
     </main>

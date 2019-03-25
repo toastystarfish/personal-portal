@@ -6,8 +6,8 @@ nav {
   height: $navbar-height;
   background-color: $app-color-navbar;
   display: flex;
-  padding: 0 16px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
+  padding: 0 16px;
 
   > ul {
     display: flex;

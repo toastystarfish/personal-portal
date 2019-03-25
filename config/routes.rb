@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   resources :users
-  root 'users#index'
   devise_scope :user do
     get '/users/new/:token', controller: 'users', action: 'new',
                        as: 'invited_new_user'
@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :invitations, only: [:new, :create]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/home', to: 'home#show'
+
+  root 'home#show'
 end
