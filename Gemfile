@@ -26,7 +26,7 @@ gem 'datum', source: 'https://VSjzUsyv5i25mygopyu7@gem.fury.io/lc41/' # Testing 
 
 # OUR FAVORITE GEMS
 
-gem 'devise', '~> 4.4.0'        # User authentication
+gem 'devise', '~> 4.6.0'        # User authentication
 gem 'pundit'                    # Controller action permissions
 gem 'will_paginate'             # Simple pagination helpers
 # gem 'sidekiq'                 # Enables ActiveJob
