@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   devise_scope :user do
     get '/users/new/:token', controller: 'users', action: 'new',
-                       as: 'invited_new_user'
+    as: 'invited_new_user'
 
     get 'sign_in', to: 'devise/sessions#new'
     get 'sign_out', to: 'devise/sessions#destroy'
