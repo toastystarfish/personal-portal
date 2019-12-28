@@ -6,9 +6,9 @@
 
 // Main page content
 main {
-  padding-top: $navbar-height;
   min-height: 100%;
   background-color: $app-color-background;
+  overflow: auto;
 }
 
 // A default page contaniner which mainly restricts the width of its contents;
@@ -99,4 +99,8 @@ th {
   .disabled {
     color: $text-hint;
   }
+}
+
+img.circle {
+  border-radius: 50%;
 }

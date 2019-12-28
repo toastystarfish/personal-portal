@@ -5,14 +5,51 @@
 @import "core/manifest";
 
 #home_show {
-  .geometry {
-    height: 1000px;
-    width: 100%;
+  .hero {
+    font-size: $font-enormous;
+    text-align: center;
+    padding: 60px;
+    background-color: #3A3A3A;
+    border-bottom: 2px solid $app-color-accent2;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 
-    canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
+    img {
+      width: 125px;
+      flex: 0 100px;
+      border: 2px solid $app-color-accent2;
+    }
+
+    .text {
+      flex: 0 450px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: $font-huge;
+    }
+
+    .small {
+      font-size: $font-large;
+      font-style: italic;
+    }
+  }
+
+  .about, .projects {
+    // background-color: #3A3A3A;
+    // border: 1px solid $app-color-accent2;
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 5px;
+
+    p {
+      white-space: pre-line;
+    }
+
+    h2 {
+      color: $app-color-accent2;
+      // border-bottom: 2px solid $app-color-accent2;
     }
   }
 }

@@ -36,6 +36,8 @@
 .primary-light  { color: $text-light; }
 .text-app-color { color: $app-color-primary; }
 .text-error     { color: $app-color-error; }
+.text-red       { color: $app-color-accent2; }
+.text-blue      { color: $app-color-accent1; }
 // -------------- Sizes ------------------
 .font-minuscule { font-size: $font-minuscule; }
 .font-tiny      { font-size: $font-tiny; }
