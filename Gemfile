@@ -10,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test] # application environment vars
 
 gem 'rails', '~> 5.2.0'         # Provides rails framework
 gem 'pg', '~> 0.18'             # Use postgres with Active Record
-gem 'puma', '~> 3.0'            # Use Puma as the app server
+gem 'puma', '~> 5.5'            # Use Puma as the app server
 gem 'sass-rails', '~> 5.0'      # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0'      # Compresses javascript assets
 gem 'jquery-rails'              # Use jquery as the Javascript library
